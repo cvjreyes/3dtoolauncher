@@ -1,8 +1,10 @@
 import './main.css';
-
-//Página de home con el menú para ir a las aplicaciones de isotracker
+import React, { useState , useEffect} from 'react'
+import Alert from "../components/alert/alert"
 
 const Main = () =>{
+    const[projects, setProjects] = useState()
+    const[updateList, setUpdateList] = useState(false)
 
     function openProject(name){
         
@@ -22,6 +24,29 @@ const Main = () =>{
             console.log(json)
         })
     }
+
+    useEffect(async() =>{
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        }
+        await fetch("http://localhost:8000/getProjectsNames", options)
+        .then(response=>response.json())
+        .then(async json =>{
+            console.log(json)
+            let projectsComponent = []
+            for(let i = 0; i < json.length; i++){
+                projectsComponent.push(<div className="panel__content__container">
+                    <div className="panel__content__button">
+                        <button className="project__button" onClick={() => openProject(json[i].name)}>{json[i].name}</button>    
+                    </div>
+                </div>)
+            }
+            await setProjects(projectsComponent)
+        }) 
+    }, [updateList])
     
     return(
         <div>
@@ -34,17 +59,7 @@ const Main = () =>{
             </div>
             <div className="elements__container">
                 <div className="menu">
-                    <div className="panel__content__container">
-                        <div className="panel__content__button">
-                            <button className="project__button" onClick={() => openProject("BIXLOZONE")}>BIXLOZONE</button>    
-                        </div>
-                    </div>   
-                    <div className="panel__content__container">
-                        <div className="panel__content__button">
-                            <button className="project__button" onClick={() => openProject("COCAPI")}>COCAPI</button>    
-                        </div>
-                    </div>  
-                   
+                    {projects}                  
                 </div>
             </div>   
         </div>

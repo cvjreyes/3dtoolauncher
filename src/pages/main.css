@@ -70,7 +70,6 @@
 
 .panel__icon:hover{
     text-decoration: none;
-    
 }
 
 .panel__icon__container{
@@ -185,4 +184,16 @@ h4{
 
 .body{
     background-color: red;
+}
+
+.alert-shown {
+    opacity: 1;
+    transition: all 250ms linear;
+    position: fixed
+  }
+
+.alert-hidden {
+    opacity: 0;
+    transition: all 250ms linear 4s;
+    position: fixed
 }

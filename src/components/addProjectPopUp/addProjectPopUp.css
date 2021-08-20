@@ -1,0 +1,75 @@
+.popUp__container{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 25px;
+}
+
+.popUp__title{
+    margin-top: 20px;
+    font-family: 'Quicksand';
+}
+
+.action__btn{
+    margin-right:40px;
+    margin-left:40px;
+    width: 142px;
+    height:38px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: 0.3s;
+    border: none;
+    margin-top: 20px;
+}
+
+.action__btn:hover{
+    background-color: #383838;
+    color: white;
+}
+
+.action__btn:hover:active{
+    background-color: #636161;
+}
+
+.params__container{
+    position: relative;
+}
+
+.popUp__input__text{
+    width: 200px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.popUp__element{
+    margin-top: 15px;
+}
+
+.popUp__element__buttons{
+    margin-top: 25px;
+}
+
+.cancel__button{
+    background: red;
+    border-radius: 10px;
+    color:white;
+    height:30px;
+    width:70px;
+    font-size: 16px;
+    border: 0px;
+    margin-left: 5px;
+}
+
+.save__button{
+    background: green;
+    border-radius: 10px;
+    color:white;
+    height:30px;
+    width:70px;
+    font-size: 16px;
+    border: 0px;
+    margin-left: 5px;
+}
